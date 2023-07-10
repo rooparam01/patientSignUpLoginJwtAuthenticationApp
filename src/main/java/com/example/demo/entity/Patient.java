@@ -1,10 +1,7 @@
 package com.example.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -24,7 +21,10 @@ public class Patient {
     @NotNull(message = "The name field cannot be left empty. Please enter a valid name.")
     @NotBlank(message = "The name field cannot be spaces. Please enter a valid name.")
     private String name;
+
+
     @Email(message = "The email you entered is not valid. Please enter a valid email address.")
+    @Column(unique = true)
     private String email;
     private String mobile;
 

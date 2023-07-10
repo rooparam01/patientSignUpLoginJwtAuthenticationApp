@@ -31,7 +31,7 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
             throw new BadCredentialsException("No User registerd with this details");
         }else{
             Patient patient = patientOptional.get();
-            if(passwordEncoder.matches(patient.getPassword(),password)){
+            if(passwordEncoder.matches(password,patient.getPassword())){
                 List<GrantedAuthority> authorities = new ArrayList<>();
                 return new UsernamePasswordAuthenticationToken(username,password,authorities);
             }else{
