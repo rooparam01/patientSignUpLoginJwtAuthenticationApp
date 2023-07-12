@@ -9,6 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -33,6 +34,7 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
             Patient patient = patientOptional.get();
             if(passwordEncoder.matches(password,patient.getPassword())){
                 List<GrantedAuthority> authorities = new ArrayList<>();
+                authorities.add(new SimpleGrantedAuthority(patient.getRole()));
                 return new UsernamePasswordAuthenticationToken(username,password,authorities);
             }else{
                 throw new BadCredentialsException("Invalid Credentials");

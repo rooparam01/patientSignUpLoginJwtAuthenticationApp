@@ -28,4 +28,35 @@ public class PatientServiceImpl implements PatientService{
            return patient;
        }
     }
+
+    @Override
+    public Patient updatePatient(Patient patient) {
+        Optional<Patient> opt = patientRepository.findById(patient.getId());
+        if(opt.isEmpty()){
+            throw new RuntimeException("Invalid user Id");
+        }else{
+            Patient patientAlreadyDetails = opt.get();
+            if(!patientAlreadyDetails.getEmail().equals(patient.getEmail())){
+                throw new RuntimeException("You are not allow to change email so please provide correct email or Id");
+            }
+            patientAlreadyDetails.setName(patient.getName());
+            patientAlreadyDetails.setMobile(patient.getMobile());
+            patientAlreadyDetails.setPassword(patient.getPassword());
+            patientAlreadyDetails.setAddress(patient.getAddress());
+            patientAlreadyDetails.setPincode(patient.getPincode());
+            patientRepository.save(patientAlreadyDetails);
+            return patientAlreadyDetails;
+        }
+    }
+
+    @Override
+    public String deletePatients(String email) {
+       Optional<Patient> optionalPatient = patientRepository.findByEmail(email);
+        if(optionalPatient.isEmpty()){
+            throw new RuntimeException("Invalid email id");
+        }
+        Patient patient = optionalPatient.get();
+        patientRepository.delete(patient);
+        return "Deleted successfully";
+    }
 }
