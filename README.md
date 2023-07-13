@@ -49,7 +49,7 @@
 
 ### Sample API Response for Patients Register
 
-`POST   http://app-patients-env.eba-eeer3ujd.ap-southeast-2.elasticbeanstalk.com`
+`POST   http://app-patients-env.eba-eeer3ujd.ap-southeast-2.elasticbeanstalk.com/patients`
 
 * Request Body
 
