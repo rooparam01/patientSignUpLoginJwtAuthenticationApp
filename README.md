@@ -37,9 +37,14 @@
 
 * `POST /patients` : Patient Register
 * `GET /signIn` : Patient Login
+   * Provide Valid Basic Auth for login
+   * Get token in Authorization header
 * `PUT /patients` : Patient Update details
+  * Bearer token required for this task 
 * `GET /patients` : Get all details of login patients
+  * Bearer token required for this task
 * `DELETE /patients/{email}` : Patient delete himself
+  * Bearer token required for this task
 
 
 ### Sample API Response for Patients Register
