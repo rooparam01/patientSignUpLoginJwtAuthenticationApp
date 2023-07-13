@@ -21,7 +21,8 @@
 * Visit this link (Swagger documentation) - http://app-patients-env.eba-eeer3ujd.ap-southeast-2.elasticbeanstalk.com/swagger-ui/index.html
 
 
-
+## Validation 
+* Name, password and Valid email are required for registration.
 
 ## API Root Endpoint
 
@@ -80,6 +81,7 @@
 
 
 ### Swagger UI
-![Screenshot (653)](https://github.com/rooparam01/patientSignUpLoginJwtAuthenticationApp/assets/111178057/937f5e23-728f-49e4-9f27-2cc153427347)
+![Screenshot (653)](https://github.com/rooparam01/patientSignUpLoginJwtAuthenticationApp/assets/111178057/92716fbc-72c5-4197-8757-b3f7751d8168)
+
 
 
